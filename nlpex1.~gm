@@ -27,11 +27,10 @@ positive variable x;
 equations
         objfun1         objective function
         cons1           constraints;
-
 * initial point
 x.l(j)= 2;
 
-objfun1 .. sum(j,x(j)*x(j)) =e= obj1;
+objfun1 .. sum(j,x(j)*x(j)) =l= obj1;
 cons1   .. prod(j,x(j)) =e= 1;
 
 model nlpex1 / all /;
