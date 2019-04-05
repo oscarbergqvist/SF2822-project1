@@ -1,0 +1,36 @@
+****************************************************************************
+*
+* Nonlinear programming example 1.
+*
+* Make sure that you understand the input and the output. In particular,
+* make sure that you understand the sensitivity analysis provided by
+* "level" and "marginal"
+*
+* What kind of point do you find?
+*
+* This is just for illustration. GAMS is not the ideal modeling tool for
+* this small problem.
+*
+* GAMS model written by Anders Forsgren.
+*
+****************************************************************************
+
+sets
+        j dimension     / j1*j3 /;
+
+variables
+        obj1    objective function value
+        x(j)    decision variables;
+
+positive variable x;
+
+equations
+        objfun1         objective function
+        cons1           constraints;
+
+objfun1 .. sum(j,x(j)*x(j)) =l= obj1;
+cons1   .. prod(j,x(j)) =e= 1;     // change to 
+
+model nlpex1 / all /;
+
+solve nlpex1 using nlp minimizing obj1;
