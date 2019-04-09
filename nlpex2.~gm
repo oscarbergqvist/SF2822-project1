@@ -1,6 +1,6 @@
 ****************************************************************************
 *
-* Nonlinear programming example 1.
+* Nonlinear programming example 2.
 *
 * Make sure that you understand the input and the output. In particular,
 * make sure that you understand the sensitivity analysis provided by
@@ -19,23 +19,17 @@ sets
         j dimension     / j1*j3 /;
 
 variables
-        obj1    objective function value
-        x(j)    decision variables;
-
-positive variable x;
+        obj2    objective function value
+        y(j)    decision variables;
 
 equations
-        objfun1         objective function
-        cons1           constraints;
+        objfun2         objective function
+        cons2           constraints;
 
-* initial point
-x.l(j)= 2;
+objfun2 .. sum(j,exp(2*y(j))) =l= obj2;
+cons2   .. sum(j,y(j)) =e= 0;
 
-objfun1 .. sum(j,x(j)*x(j)) =e= obj1;
-cons1   .. prod(j,x(j)) =e= 1;
+model nlpex2 / all /;
 
-model nlpex1 / all /;
+solve nlpex2 using nlp minimizing obj2;
 
-option nlp = snopt;
-
-solve nlpex1 using nlp minimizing obj1;
