@@ -59,6 +59,6 @@ EQUATIONS
     maxsaleB(i)     ..  u1(i) + vb(i) =g= pb(i);
     excessB(i)      ..  u1(i) + vb(i) - d(i) =e= splus(i) - sminus(i);
 
-MODEL   oilconverter /all/;
+MODEL   oilconverter /all/; 
 OPTION  nlp = snopt;
 SOLVE   oilconverter using nlp minimizing z;

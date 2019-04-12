@@ -1,0 +1,217 @@
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 15:43:41 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+FUNCLIBIN  stolib stodclib
+Function Library stolib
+Random deviates, probability density function, cumulative distribution function, inverse cumulative distribution function
+GAMS Development Corporation
+
+Mod. Function                          Description
+Type
+
+none SetSeed(SEED)                     Define the seed for random number generator
+none dUniform(LOW,HIGH)                Uniform distribution
+DNLP pdfUniform(x,LOW,HIGH)            Probability density function for uniform distribution
+DNLP cdfUniform(x,LOW,HIGH)            Cumulative distribution function for uniform distribution
+DNLP icdfUniform(x,LOW,HIGH)           Inverse cumulative distribution function for uniform distribution
+none dNormal(MEAN,STD_DEV)             Normal distribution
+DNLP pdfNormal(x,MEAN,STD_DEV)         Probability density function for normal distribution
+DNLP cdfNormal(x,MEAN,STD_DEV)         Cumulative distribution function for normal distribution
+DNLP icdfNormal(x,MEAN,STD_DEV)        Inverse cumulative distribution function for normal distribution
+none dInvGaussian(MEAN,SHAPE)          Inverse Gaussian distribution
+DNLP pdfInvGaussian(x,MEAN,SHAPE)      Probability density function for inverse Gaussian distribution
+DNLP cdfInvGaussian(x,MEAN,SHAPE)      Cumulative distribution function for inverse Gaussian distribution
+DNLP icdfInvGaussian(x,MEAN,SHAPE)     Inverse cumulative distribution function for inverse Gaussian distribution
+none dRayleigh(SIGMA)                  Rayleigh distribution
+DNLP pdfRayleigh(x,SIGMA)              Probability density function for Rayleigh distribution
+DNLP cdfRayleigh(x,SIGMA)              Cumulative distribution function for Rayleigh distribution
+DNLP icdfRayleigh(x,SIGMA)             Inverse cumulative distribution function for Rayleigh distribution
+none dCauchy(LOCATION,SCALE)           Cauchy distribution
+DNLP pdfCauchy(x,LOCATION,SCALE)       Probability density function for Cauchy distribution
+DNLP cdfCauchy(x,LOCATION,SCALE)       Cumulative distribution function for Cauchy distribution
+DNLP icdfCauchy(x,LOCATION,SCALE)      Inverse cumulative distribution function for Cauchy distribution
+none dLognormal(LOCATION,SCALE)        Lognormal distribution
+DNLP pdfLognormal(x,LOCATION,SCALE)    Probability density function for Lognormal distribution
+DNLP cdfLognormal(x,LOCATION,SCALE)    Cumulative distribution function for Lognormal distribution
+DNLP icdfLognormal(x,LOCATION,SCALE)   Inverse cumulative distribution function for Lognormal distribution
+none dExponential(LAMBDA)              Exponential distribution
+DNLP pdfExponential(x,LAMBDA)          Probability density function for Exponential distribution
+DNLP cdfExponential(x,LAMBDA)          Cumulative distribution function for Exponential distribution
+DNLP icdfExponential(x,LAMBDA)         Inverse cumulative distribution function for Exponential distribution
+none dLogistic(LOCATION,SCALE)         Logistic distribution
+DNLP pdfLogistic(x,LOCATION,SCALE)     Probability density function for Logistic distribution
+DNLP cdfLogistic(x,LOCATION,SCALE)     Cumulative distribution function for Logistic distribution
+DNLP icdfLogistic(x,LOCATION,SCALE)    Inverse cumulative distribution function for Logistic distribution
+none dGamma(SHAPE,SCALE)               Gamma distribution
+DNLP pdfGamma(x,SHAPE,SCALE)           Probability density function for Gamma distribution
+DNLP cdfGamma(x,SHAPE,SCALE)           Cumulative distribution function for Gamma distribution
+DNLP icdfGamma(x,SHAPE,SCALE)          Inverse cumulative distribution function for Gamma distribution
+none dChiSquare(DF)                    Chi square distribution
+DNLP pdfChiSquare(x,DF)                Probability density function for Chi square distribution
+DNLP cdfChiSquare(x,DF)                Cumulative distribution function for Chi square distribution
+DNLP icdfChiSquare(x,DF)               Inverse cumulative distribution function for Chi square distribution
+none dWeibull(SHAPE,SCALE)             Weibull distribution
+DNLP pdfWeibull(x,SHAPE,SCALE)         Probability density function for Weibull distribution
+DNLP cdfWeibull(x,SHAPE,SCALE)         Cumulative distribution function for Weibull distribution
+DNLP icdfWeibull(x,SHAPE,SCALE)        Inverse cumulative distribution function for Weibull distribution
+none dBeta(SHAPE_1,SHAPE_2)            Beta distribution
+DNLP pdfBeta(x,SHAPE_1,SHAPE_2)        Probability density function for Beta distribution
+DNLP cdfBeta(x,SHAPE_1,SHAPE_2)        Cumulative distribution function for Beta distribution
+DNLP icdfBeta(x,SHAPE_1,SHAPE_2)       Inverse cumulative distribution function for Beta distribution
+none dF(DF_1,DF_2)                     F distribution
+DNLP pdfF(x,DF_1,DF_2)                 Probability density function for F distribution
+DNLP cdfF(x,DF_1,DF_2)                 Cumulative distribution function for F distribution
+DNLP icdfF(x,DF_1,DF_2)                Inverse cumulative distribution function for F distribution
+none dStudentT(DF)                     Students T distribution
+DNLP pdfStudentT(x,DF)                 Probability density function for Students T distribution
+DNLP cdfStudentT(x,DF)                 Cumulative distribution function for Students T distribution
+DNLP icdfStudentT(x,DF)                Inverse cumulative distribution function for Students T distribution
+none dPareto(SCALE,SHAPE)              Pareto distribution
+DNLP pdfPareto(x,SCALE,SHAPE)          Probability density function for Pareto distribution
+DNLP cdfPareto(x,SCALE,SHAPE)          Cumulative distribution function for Pareto distribution
+DNLP icdfPareto(x,SCALE,SHAPE)         Inverse cumulative distribution function for Pareto distribution
+none dGumbel(LOCATION,SCALE)           Gumbel distribution
+DNLP pdfGumbel(x,LOCATION,SCALE)       Probability density function for Gumbel distribution
+DNLP cdfGumbel(x,LOCATION,SCALE)       Cumulative distribution function for Gumbel distribution
+DNLP icdfGumbel(x,LOCATION,SCALE)      Inverse cumulative distribution function for Gumbel distribution
+none dLaplace(MEAN,SCALE)              Laplace distribution
+DNLP pdfLaplace(x,MEAN,SCALE)          Probability density function for Laplace distribution
+DNLP cdfLaplace(x,MEAN,SCALE)          Cumulative distribution function for Laplace distribution
+DNLP icdfLaplace(x,MEAN,SCALE)         Inverse cumulative distribution function for Laplace distribution
+none dTriangular(LOW,MID,HIGH)         Triangular distribution
+DNLP pdfTriangular(x,LOW,MID,HIGH)     Probability density function for Triangular distribution
+DNLP cdfTriangular(x,LOW,MID,HIGH)     Cumulative distribution function for Triangular distribution
+DNLP icdfTriangular(x,LOW,MID,HIGH)    Inverse cumulative distribution function for Triangular distribution
+none dUniformInt(LOW,HIGH)             Uniform integer distribution
+none pdfUniformInt(x,LOW,HIGH)         Probability density function for Uniform integer distribution
+none cdfUniformInt(x,LOW,HIGH)         Cumulative distribution function for Uniform integer distribution
+none icdfUniformInt(x,LOW,HIGH)        Inverse cumulative distribution function for Uniform integer distribution
+none dBinomial(N,P)                    Binomial distribution
+none pdfBinomial(x,N,P)                Probability density function for Binomial distribution
+none cdfBinomial(x,N,P)                Cumulative distribution function for Binomial distribution
+none icdfBinomial(x,N,P)               Inverse cumulative distribution function for Binomial distribution
+none dNegBinomial(FAILURES,P)          Negative Binomial distribution
+none pdfNegBinomial(x,FAILURES,P)      Probability density function for Negative Binomial distribution
+none cdfNegBinomial(x,FAILURES,P)      Cumulative distribution function for Negative Binomial distribution
+none icdfNegBinomial(x,FAILURES,P)     Inverse cumulative distribution function for Negative Binomial distribution
+none dGeometric(P)                     Geometric distribution
+none pdfGeometric(x,P)                 Probability density function for Geometric distribution
+none cdfGeometric(x,P)                 Cumulative distribution function for Geometric distribution
+none icdfGeometric(x,P)                Inverse cumulative distribution function for Geometric distribution
+none dHyperGeo(TOTAL,GOOD,TRIALS)      HyperGeometric distribution
+none pdfHyperGeo(x,TOTAL,GOOD,TRIALS)  Probability density function for HyperGeometric distribution
+none cdfHyperGeo(x,TOTAL,GOOD,TRIALS)  Cumulative distribution function for HyperGeometric distribution
+none icdfHyperGeo(x,TOTAL,GOOD,TRIALS) Inverse cumulative distribution function for HyperGeometric distribution
+none dLogarithmic(P-FACTOR)            Logarithmic distribution
+none pdfLogarithmic(x,P-FACTOR)        Probability density function for Logarithmic distribution
+none cdfLogarithmic(x,P-FACTOR)        Cumulative distribution function for Logarithmic distribution
+none icdfLogarithmic(x,P-FACTOR)       Inverse cumulative distribution function for Logarithmic distribution
+none dPoisson(LAMBDA)                  Poisson distribution
+none pdfPoisson(x,LAMBDA)              Probability density function for Poisson distribution
+none cdfPoisson(x,LAMBDA)              Cumulative distribution function for Poisson distribution
+none icdfPoisson(x,LAMBDA)             Inverse cumulative distribution function for Poisson distribution
+
+   2  Functions cdf /stolib.cdfnormal/
+   3            pdf /stolib.pdfnormal/;
+   4   
+   5   
+   6  SET i 'weeks' /i1*i3/;
+   7   
+   8  PARAMETERS
+   9  d(i) 'demand of prod b'
+  10      /i1 30
+  11       i2 130
+  12       i3 130/;
+  13   
+  14  VARIABLES
+  15      x1(i)       'crude oil 1 to crude converter'
+  16      x2(i)       'crude oil 2 to crude converter'
+  17      za(i)       'prod a from crude converter'
+  18      zb(i)       'prod b from crude converter'
+  19      zc(i)       'prod c from crude converter'
+  20      u1(i)       'split from prod b to final product'
+  21      u2(i)       'split from prod b to reconverter'
+  22      va(i)       'prod a from reconverter'
+  23      vb(i)       'prod b from reconverter'
+  24      pa(i)       'final product a'
+  25      pb(i)       'final product b'
+  26      splus(i)    'excess over demand for prod b (to store)'
+  27      sminus(i)   'shortage of prod b'
+  28      z           'total expected cost' ;
+  29   
+  30  POSITIVE VARIABLES x1, x2, za, zb, zc, u1, u2, va, vb, pa, pb, splus, sminus;
+  31   
+  32  EQUATIONS
+  33      objfun          'objective function'
+  34      supply(i)       'supply of crude oil two'
+  35      capacityZ(i)    'capacity of crude converter'
+  36      yieldZA(i)      'yield from crude converter to prod a'
+  37      yieldZB(i)      'yield from crude converter to prod b'
+  38      yieldZC(i)      'yield from crude converter to prod c'
+  39      usplit(i)       'split of prod b to final product and reconverter'
+  40      capacityV(i)    'capacity of reconverter'
+  41      yieldVA(i)      'yield from reconverter to prod a'
+  42      yieldVB(i)      'yield from reconverter to prod b'
+  43      demandPA(i)     'demand of product pa'
+  44      demandPB(i)     'demand of product pb'
+  45      maxsaleB(i)     'we have to sell less then what we produce'
+  46      excessB(i)      'surplus of product b after sales';
+  47   
+  48   
+  49      objfun          ..  z =e= sum(i, 80000*pdf(x1(i), 300, 20) + 500*x1(i)
+  50                                       + (200*x1(i) - 60000)*cdf(x1(i), 300, 20)) +
+  51                                sum(i, 600*x2(i) + 100*(x1(i)+x2(i)) + 80*(zc(i)+u2(i)) + 20*splus(i)
+  52                                       - 1000*pa(i) - 740*pb(i));
+  53      supply(i)       ..  x2(i) =l= 300;
+  54      capacityZ(i)    ..  x1(i) + x2(i) =l= 500;
+  55      yieldZA(i)      ..  0.5*x1(i) + 0.7*x2(i) =e= za(i);
+  56      yieldZB(i)      ..  splus(i-1) + 0.3*x1(i) + 0.2*x2(i) =e= zb(i);
+  57      yieldZC(i)      ..  0.2*x1(i) + 0.1*x2(i) =e= zc(i);
+  58      usplit(i)       ..  u1(i) + u2(i) =e= zb(i);
+  59      capacityV(i)    ..  zc(i) + u2(i) =l= 300;
+  60      yieldVA(i)      ..  0.9*u2(i) + 0.4*zc(i) =e= va(i);
+  61      yieldVB(i)      ..  0.1*u2(i) + 0.6*zc(i) =e= vb(i);
+  62      demandPA(i)     ..  pa(i) =l= 250;
+  63      demandPB(i)     ..  pb(i) =l= d(i);
+  64      maxsaleB(i)     ..  u1(i) + vb(i) =g= pb(i);
+  65      excessB(i)      ..  u1(i) + vb(i) - d(i) =e= splus(i) - sminus(i);
+  66   
+  67  MODEL   oilconverter /all/;
+  68  OPTION  nlp = lindo;
+  69  SOLVE   oilconverter using nlp minimizing z;
+****                                             $61,256
+****  61  Functions with discontinuous derivatives are illegal
+****      In nlp models. use "dnlp"
+**** 256  Error(s) in analyzing solve statement. More detail appears
+****      Below the solve statement above
+**** The following NLP errors were detected in model oilconverter:
+****  61 equation objfun.. the function PDFNORMAL is not smooth, use DNLP
+****  61 equation objfun.. the function CDFNORMAL is not smooth, use DNLP
+
+**** 2 ERROR(S)   0 WARNING(S)
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 15:43:41 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  C:\Users\Oscar Bergqvist\Desktop\SF2822-project1\gams\project1-basic2.gms
+     2        1 FUNCLIBIN      1       1  stodclib
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  25.1.3 r4e34d435fbd WEX-WEI
+
+
+USER: GAMS Development Corporation, USA              G871201/0000CA-ANY
+      Free Demo, +1 202-342-0180, support@gams.com, www.gams.com DC0000
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\Oscar Bergqvist\Desktop\SF2822-project1\gams\project1-basic2.gms
+Output     C:\Users\Oscar Bergqvist\Desktop\SF2822-project1\gams\project1-basic2.lst
+
+**** USER ERROR(S) ENCOUNTERED

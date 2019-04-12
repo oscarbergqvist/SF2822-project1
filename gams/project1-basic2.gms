@@ -1,3 +1,8 @@
+$funclibin stolib stodclib
+Functions cdf /stolib.cdfnormal/
+          pdf /stolib.pdfnormal/;
+
+
 SET i 'weeks' /i1*i3/;
 
 PARAMETERS
@@ -41,8 +46,8 @@ EQUATIONS
     excessB(i)      'surplus of product b after sales';
 
 
-    objfun          ..  z =e= sum(i, 80000*1/(sqrt(2*pi)*20)*exp(-sqr(x1(i)-300)/(2*sqr(20))) + 500*x1(i)
-                                     + (200*x1(i) - 60000)* errorf((x1(i)-300)/20)) +
+    objfun          ..  z =e= sum(i, 80000*pdf(x1(i), 300, 20) + 500*x1(i)
+                                     + (200*x1(i) - 60000)*cdf(x1(i), 300, 20)) +
                               sum(i, 600*x2(i) + 100*(x1(i)+x2(i)) + 80*(zc(i)+u2(i)) + 20*splus(i)
                                      - 1000*pa(i) - 740*pb(i));
     supply(i)       ..  x2(i) =l= 300;
@@ -60,5 +65,5 @@ EQUATIONS
     excessB(i)      ..  u1(i) + vb(i) - d(i) =e= splus(i) - sminus(i);
 
 MODEL   oilconverter /all/;
-OPTION  nlp = snopt;
+OPTION  nlp = lindo;
 SOLVE   oilconverter using nlp minimizing z;
