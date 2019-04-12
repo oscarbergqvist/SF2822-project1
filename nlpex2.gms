@@ -26,6 +26,8 @@ equations
         objfun2         objective function
         cons2           constraints;
 
+y
+
 objfun2 .. sum(j,exp(2*y(j))) =l= obj2;
 cons2   .. sum(j,y(j)) =e= 0;
 
