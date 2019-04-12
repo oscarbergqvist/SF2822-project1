@@ -1,0 +1,900 @@
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 11:55:13 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+FUNCLIBIN  stolib stodclib
+Function Library stolib
+Random deviates, probability density function, cumulative distribution function, inverse cumulative distribution function
+GAMS Development Corporation
+
+Mod. Function                          Description
+Type
+
+none SetSeed(SEED)                     Define the seed for random number generator
+none dUniform(LOW,HIGH)                Uniform distribution
+DNLP pdfUniform(x,LOW,HIGH)            Probability density function for uniform distribution
+DNLP cdfUniform(x,LOW,HIGH)            Cumulative distribution function for uniform distribution
+DNLP icdfUniform(x,LOW,HIGH)           Inverse cumulative distribution function for uniform distribution
+none dNormal(MEAN,STD_DEV)             Normal distribution
+DNLP pdfNormal(x,MEAN,STD_DEV)         Probability density function for normal distribution
+DNLP cdfNormal(x,MEAN,STD_DEV)         Cumulative distribution function for normal distribution
+DNLP icdfNormal(x,MEAN,STD_DEV)        Inverse cumulative distribution function for normal distribution
+none dInvGaussian(MEAN,SHAPE)          Inverse Gaussian distribution
+DNLP pdfInvGaussian(x,MEAN,SHAPE)      Probability density function for inverse Gaussian distribution
+DNLP cdfInvGaussian(x,MEAN,SHAPE)      Cumulative distribution function for inverse Gaussian distribution
+DNLP icdfInvGaussian(x,MEAN,SHAPE)     Inverse cumulative distribution function for inverse Gaussian distribution
+none dRayleigh(SIGMA)                  Rayleigh distribution
+DNLP pdfRayleigh(x,SIGMA)              Probability density function for Rayleigh distribution
+DNLP cdfRayleigh(x,SIGMA)              Cumulative distribution function for Rayleigh distribution
+DNLP icdfRayleigh(x,SIGMA)             Inverse cumulative distribution function for Rayleigh distribution
+none dCauchy(LOCATION,SCALE)           Cauchy distribution
+DNLP pdfCauchy(x,LOCATION,SCALE)       Probability density function for Cauchy distribution
+DNLP cdfCauchy(x,LOCATION,SCALE)       Cumulative distribution function for Cauchy distribution
+DNLP icdfCauchy(x,LOCATION,SCALE)      Inverse cumulative distribution function for Cauchy distribution
+none dLognormal(LOCATION,SCALE)        Lognormal distribution
+DNLP pdfLognormal(x,LOCATION,SCALE)    Probability density function for Lognormal distribution
+DNLP cdfLognormal(x,LOCATION,SCALE)    Cumulative distribution function for Lognormal distribution
+DNLP icdfLognormal(x,LOCATION,SCALE)   Inverse cumulative distribution function for Lognormal distribution
+none dExponential(LAMBDA)              Exponential distribution
+DNLP pdfExponential(x,LAMBDA)          Probability density function for Exponential distribution
+DNLP cdfExponential(x,LAMBDA)          Cumulative distribution function for Exponential distribution
+DNLP icdfExponential(x,LAMBDA)         Inverse cumulative distribution function for Exponential distribution
+none dLogistic(LOCATION,SCALE)         Logistic distribution
+DNLP pdfLogistic(x,LOCATION,SCALE)     Probability density function for Logistic distribution
+DNLP cdfLogistic(x,LOCATION,SCALE)     Cumulative distribution function for Logistic distribution
+DNLP icdfLogistic(x,LOCATION,SCALE)    Inverse cumulative distribution function for Logistic distribution
+none dGamma(SHAPE,SCALE)               Gamma distribution
+DNLP pdfGamma(x,SHAPE,SCALE)           Probability density function for Gamma distribution
+DNLP cdfGamma(x,SHAPE,SCALE)           Cumulative distribution function for Gamma distribution
+DNLP icdfGamma(x,SHAPE,SCALE)          Inverse cumulative distribution function for Gamma distribution
+none dChiSquare(DF)                    Chi square distribution
+DNLP pdfChiSquare(x,DF)                Probability density function for Chi square distribution
+DNLP cdfChiSquare(x,DF)                Cumulative distribution function for Chi square distribution
+DNLP icdfChiSquare(x,DF)               Inverse cumulative distribution function for Chi square distribution
+none dWeibull(SHAPE,SCALE)             Weibull distribution
+DNLP pdfWeibull(x,SHAPE,SCALE)         Probability density function for Weibull distribution
+DNLP cdfWeibull(x,SHAPE,SCALE)         Cumulative distribution function for Weibull distribution
+DNLP icdfWeibull(x,SHAPE,SCALE)        Inverse cumulative distribution function for Weibull distribution
+none dBeta(SHAPE_1,SHAPE_2)            Beta distribution
+DNLP pdfBeta(x,SHAPE_1,SHAPE_2)        Probability density function for Beta distribution
+DNLP cdfBeta(x,SHAPE_1,SHAPE_2)        Cumulative distribution function for Beta distribution
+DNLP icdfBeta(x,SHAPE_1,SHAPE_2)       Inverse cumulative distribution function for Beta distribution
+none dF(DF_1,DF_2)                     F distribution
+DNLP pdfF(x,DF_1,DF_2)                 Probability density function for F distribution
+DNLP cdfF(x,DF_1,DF_2)                 Cumulative distribution function for F distribution
+DNLP icdfF(x,DF_1,DF_2)                Inverse cumulative distribution function for F distribution
+none dStudentT(DF)                     Students T distribution
+DNLP pdfStudentT(x,DF)                 Probability density function for Students T distribution
+DNLP cdfStudentT(x,DF)                 Cumulative distribution function for Students T distribution
+DNLP icdfStudentT(x,DF)                Inverse cumulative distribution function for Students T distribution
+none dPareto(SCALE,SHAPE)              Pareto distribution
+DNLP pdfPareto(x,SCALE,SHAPE)          Probability density function for Pareto distribution
+DNLP cdfPareto(x,SCALE,SHAPE)          Cumulative distribution function for Pareto distribution
+DNLP icdfPareto(x,SCALE,SHAPE)         Inverse cumulative distribution function for Pareto distribution
+none dGumbel(LOCATION,SCALE)           Gumbel distribution
+DNLP pdfGumbel(x,LOCATION,SCALE)       Probability density function for Gumbel distribution
+DNLP cdfGumbel(x,LOCATION,SCALE)       Cumulative distribution function for Gumbel distribution
+DNLP icdfGumbel(x,LOCATION,SCALE)      Inverse cumulative distribution function for Gumbel distribution
+none dLaplace(MEAN,SCALE)              Laplace distribution
+DNLP pdfLaplace(x,MEAN,SCALE)          Probability density function for Laplace distribution
+DNLP cdfLaplace(x,MEAN,SCALE)          Cumulative distribution function for Laplace distribution
+DNLP icdfLaplace(x,MEAN,SCALE)         Inverse cumulative distribution function for Laplace distribution
+none dTriangular(LOW,MID,HIGH)         Triangular distribution
+DNLP pdfTriangular(x,LOW,MID,HIGH)     Probability density function for Triangular distribution
+DNLP cdfTriangular(x,LOW,MID,HIGH)     Cumulative distribution function for Triangular distribution
+DNLP icdfTriangular(x,LOW,MID,HIGH)    Inverse cumulative distribution function for Triangular distribution
+none dUniformInt(LOW,HIGH)             Uniform integer distribution
+none pdfUniformInt(x,LOW,HIGH)         Probability density function for Uniform integer distribution
+none cdfUniformInt(x,LOW,HIGH)         Cumulative distribution function for Uniform integer distribution
+none icdfUniformInt(x,LOW,HIGH)        Inverse cumulative distribution function for Uniform integer distribution
+none dBinomial(N,P)                    Binomial distribution
+none pdfBinomial(x,N,P)                Probability density function for Binomial distribution
+none cdfBinomial(x,N,P)                Cumulative distribution function for Binomial distribution
+none icdfBinomial(x,N,P)               Inverse cumulative distribution function for Binomial distribution
+none dNegBinomial(FAILURES,P)          Negative Binomial distribution
+none pdfNegBinomial(x,FAILURES,P)      Probability density function for Negative Binomial distribution
+none cdfNegBinomial(x,FAILURES,P)      Cumulative distribution function for Negative Binomial distribution
+none icdfNegBinomial(x,FAILURES,P)     Inverse cumulative distribution function for Negative Binomial distribution
+none dGeometric(P)                     Geometric distribution
+none pdfGeometric(x,P)                 Probability density function for Geometric distribution
+none cdfGeometric(x,P)                 Cumulative distribution function for Geometric distribution
+none icdfGeometric(x,P)                Inverse cumulative distribution function for Geometric distribution
+none dHyperGeo(TOTAL,GOOD,TRIALS)      HyperGeometric distribution
+none pdfHyperGeo(x,TOTAL,GOOD,TRIALS)  Probability density function for HyperGeometric distribution
+none cdfHyperGeo(x,TOTAL,GOOD,TRIALS)  Cumulative distribution function for HyperGeometric distribution
+none icdfHyperGeo(x,TOTAL,GOOD,TRIALS) Inverse cumulative distribution function for HyperGeometric distribution
+none dLogarithmic(P-FACTOR)            Logarithmic distribution
+none pdfLogarithmic(x,P-FACTOR)        Probability density function for Logarithmic distribution
+none cdfLogarithmic(x,P-FACTOR)        Cumulative distribution function for Logarithmic distribution
+none icdfLogarithmic(x,P-FACTOR)       Inverse cumulative distribution function for Logarithmic distribution
+none dPoisson(LAMBDA)                  Poisson distribution
+none pdfPoisson(x,LAMBDA)              Probability density function for Poisson distribution
+none cdfPoisson(x,LAMBDA)              Cumulative distribution function for Poisson distribution
+none icdfPoisson(x,LAMBDA)             Inverse cumulative distribution function for Poisson distribution
+
+   2  Functions cdf /stolib.cdfnormal/
+   3            pdf /stolib.pdfnormal/;
+   4   
+   5   
+   6  SET i 'weeks' /i1*i3/;
+   7   
+   8  PARAMETERS
+   9  d(i) 'demand of prod b'
+  10      /i1 30
+  11       i2 130
+  12       i3 130/;
+  13   
+  14  VARIABLES
+  15      x1(i)       'crude oil 1 to crude converter'
+  16      x2(i)       'crude oil 2 to crude converter'
+  17      za(i)       'prod a from crude converter'
+  18      zb(i)       'prod b from crude converter'
+  19      zc(i)       'prod c from crude converter'
+  20      u1(i)       'split from prod b to final product'
+  21      u2(i)       'split from prod b to reconverter'
+  22      va(i)       'prod a from reconverter'
+  23      vb(i)       'prod b from reconverter'
+  24      pa(i)       'final product a'
+  25      pb(i)       'final product b'
+  26      splus(i)    'excess over demand for prod b (to store)'
+  27      sminus(i)   'shortage of prod b'
+  28      z           'total expected cost' ;
+  29   
+  30  POSITIVE VARIABLES x1, x2, za, zb, zc, u1, u2, va, vb, pa, pb, splus, sminus;
+  31   
+  32  EQUATIONS
+  33      objfun          'objective function'
+  34      supply(i)       'supply of crude oil two'
+  35      capacityZ(i)    'capacity of crude converter'
+  36      yieldZA(i)      'yield from crude converter to prod a'
+  37      yieldZB(i)      'yield from crude converter to prod b'
+  38      yieldZC(i)      'yield from crude converter to prod c'
+  39      usplit(i)       'split of prod b to final product and reconverter'
+  40      capacityV(i)    'capacity of reconverter'
+  41      yieldVA(i)      'yield from reconverter to prod a'
+  42      yieldVB(i)      'yield from reconverter to prod b'
+  43      demandPA(i)     'demand of product pa'
+  44      demandPB(i)     'demand of product pb'
+  45      maxsaleB(i)     'we have to sell less then what we produce'
+  46      excessB(i)      'surplus of product b after sales';
+  47   
+  48   
+  49      objfun          ..  z =e=
+  50  *sum(i, 80000*pdf(x1(i), 300, 20) + 500*x1(i)
+  51  *+ (200*x1(i) - 60000)*cdf(x1(i), 300, 20)) +
+  52                                sum(i, 600*x2(i) + 100*(x1(i)+x2(i)) + 80*(zc(i)+u2(i)) + 20*splus(i)
+  53                                       - 1000*pa(i) - 740*pb(i));
+  54      supply(i)       ..  x2(i) =l= 300;
+  55      capacityZ(i)    ..  x1(i) + x2(i) =l= 500;
+  56      yieldZA(i)      ..  0.5*x1(i) + 0.7*x2(i) =e= za(i);
+  57      yieldZB(i)      ..  splus(i-1) + 0.3*x1(i) + 0.2*x2(i) =e= zb(i);
+  58      yieldZC(i)      ..  0.2*x1(i) + 0.1*x2(i) =e= zc(i);
+  59      usplit(i)       ..  u1(i) + u2(i) =e= zb(i);
+  60      capacityV(i)    ..  zc(i) + u2(i) =l= 300;
+  61      yieldVA(i)      ..  0.9*u2(i) + 0.4*zc(i) =e= va(i);
+  62      yieldVB(i)      ..  0.1*u2(i) + 0.6*zc(i) =e= vb(i);
+  63      demandPA(i)     ..  pa(i) =l= 250;
+  64      demandPB(i)     ..  pb(i) =l= d(i);
+  65      maxsaleB(i)     ..  u1(i) + vb(i) =g= pb(i);
+  66      excessB(i)      ..  u1(i) + vb(i) - d(i) =e= splus(i) - sminus(i);
+  67   
+  68  MODEL   oilconverter /all/;
+  69  OPTION  nlp = lindo;
+  70  SOLVE   oilconverter using nlp minimizing z;
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 11:55:13 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  C:\Users\Oscar Bergqvist\Desktop\SF2822-project1\gams\project1-basic.gms
+     2        1 FUNCLIBIN      1       1  stodclib
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  25.1.3 r4e34d435fbd WEX-WEI
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 11:55:13 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE oilconverter Using NLP From line 70
+
+
+---- objfun  =E=  objective function
+
+objfun..  - 100*x1(i1) - 100*x1(i2) - 100*x1(i3) - 700*x2(i1) - 700*x2(i2) - 700*x2(i3) - 80*zc(i1) - 80*zc(i2) - 80*zc(i3) - 80*u2(i1) - 80*u2(i2) - 80*u2(i3) + 1000*pa(i1) + 1000*pa(i2) + 1000*pa(i3) + 740*pb(i1) + 740*pb(i2) + 740*pb(i3) - 20*splus(i1)
+     
+      - 20*splus(i2) - 20*splus(i3) + z =E= 0 ; (LHS = 0)
+     
+
+---- supply  =L=  supply of crude oil two
+
+supply(i1)..  x2(i1) =L= 300 ; (LHS = 0)
+     
+supply(i2)..  x2(i2) =L= 300 ; (LHS = 0)
+     
+supply(i3)..  x2(i3) =L= 300 ; (LHS = 0)
+     
+
+---- capacityZ  =L=  capacity of crude converter
+
+capacityZ(i1)..  x1(i1) + x2(i1) =L= 500 ; (LHS = 0)
+     
+capacityZ(i2)..  x1(i2) + x2(i2) =L= 500 ; (LHS = 0)
+     
+capacityZ(i3)..  x1(i3) + x2(i3) =L= 500 ; (LHS = 0)
+     
+
+---- yieldZA  =E=  yield from crude converter to prod a
+
+yieldZA(i1)..  0.5*x1(i1) + 0.7*x2(i1) - za(i1) =E= 0 ; (LHS = 0)
+     
+yieldZA(i2)..  0.5*x1(i2) + 0.7*x2(i2) - za(i2) =E= 0 ; (LHS = 0)
+     
+yieldZA(i3)..  0.5*x1(i3) + 0.7*x2(i3) - za(i3) =E= 0 ; (LHS = 0)
+     
+
+---- yieldZB  =E=  yield from crude converter to prod b
+
+yieldZB(i1)..  0.3*x1(i1) + 0.2*x2(i1) - zb(i1) =E= 0 ; (LHS = 0)
+     
+yieldZB(i2)..  0.3*x1(i2) + 0.2*x2(i2) - zb(i2) + splus(i1) =E= 0 ; (LHS = 0)
+     
+yieldZB(i3)..  0.3*x1(i3) + 0.2*x2(i3) - zb(i3) + splus(i2) =E= 0 ; (LHS = 0)
+     
+
+---- yieldZC  =E=  yield from crude converter to prod c
+
+yieldZC(i1)..  0.2*x1(i1) + 0.1*x2(i1) - zc(i1) =E= 0 ; (LHS = 0)
+     
+yieldZC(i2)..  0.2*x1(i2) + 0.1*x2(i2) - zc(i2) =E= 0 ; (LHS = 0)
+     
+yieldZC(i3)..  0.2*x1(i3) + 0.1*x2(i3) - zc(i3) =E= 0 ; (LHS = 0)
+     
+
+---- usplit  =E=  split of prod b to final product and reconverter
+
+usplit(i1)..  - zb(i1) + u1(i1) + u2(i1) =E= 0 ; (LHS = 0)
+     
+usplit(i2)..  - zb(i2) + u1(i2) + u2(i2) =E= 0 ; (LHS = 0)
+     
+usplit(i3)..  - zb(i3) + u1(i3) + u2(i3) =E= 0 ; (LHS = 0)
+     
+
+---- capacityV  =L=  capacity of reconverter
+
+capacityV(i1)..  zc(i1) + u2(i1) =L= 300 ; (LHS = 0)
+     
+capacityV(i2)..  zc(i2) + u2(i2) =L= 300 ; (LHS = 0)
+     
+capacityV(i3)..  zc(i3) + u2(i3) =L= 300 ; (LHS = 0)
+     
+
+---- yieldVA  =E=  yield from reconverter to prod a
+
+yieldVA(i1)..  0.4*zc(i1) + 0.9*u2(i1) - va(i1) =E= 0 ; (LHS = 0)
+     
+yieldVA(i2)..  0.4*zc(i2) + 0.9*u2(i2) - va(i2) =E= 0 ; (LHS = 0)
+     
+yieldVA(i3)..  0.4*zc(i3) + 0.9*u2(i3) - va(i3) =E= 0 ; (LHS = 0)
+     
+
+---- yieldVB  =E=  yield from reconverter to prod b
+
+yieldVB(i1)..  0.6*zc(i1) + 0.1*u2(i1) - vb(i1) =E= 0 ; (LHS = 0)
+     
+yieldVB(i2)..  0.6*zc(i2) + 0.1*u2(i2) - vb(i2) =E= 0 ; (LHS = 0)
+     
+yieldVB(i3)..  0.6*zc(i3) + 0.1*u2(i3) - vb(i3) =E= 0 ; (LHS = 0)
+     
+
+---- demandPA  =L=  demand of product pa
+
+demandPA(i1)..  pa(i1) =L= 250 ; (LHS = 0)
+     
+demandPA(i2)..  pa(i2) =L= 250 ; (LHS = 0)
+     
+demandPA(i3)..  pa(i3) =L= 250 ; (LHS = 0)
+     
+
+---- demandPB  =L=  demand of product pb
+
+demandPB(i1)..  pb(i1) =L= 30 ; (LHS = 0)
+     
+demandPB(i2)..  pb(i2) =L= 130 ; (LHS = 0)
+     
+demandPB(i3)..  pb(i3) =L= 130 ; (LHS = 0)
+     
+
+---- maxsaleB  =G=  we have to sell less then what we produce
+
+maxsaleB(i1)..  u1(i1) + vb(i1) - pb(i1) =G= 0 ; (LHS = 0)
+     
+maxsaleB(i2)..  u1(i2) + vb(i2) - pb(i2) =G= 0 ; (LHS = 0)
+     
+maxsaleB(i3)..  u1(i3) + vb(i3) - pb(i3) =G= 0 ; (LHS = 0)
+     
+
+---- excessB  =E=  surplus of product b after sales
+
+excessB(i1)..  u1(i1) + vb(i1) - splus(i1) + sminus(i1) =E= 30 ; (LHS = 0, INFES = 30 ****)
+     
+excessB(i2)..  u1(i2) + vb(i2) - splus(i2) + sminus(i2) =E= 130 ; (LHS = 0, INFES = 130 ****)
+     
+excessB(i3)..  u1(i3) + vb(i3) - splus(i3) + sminus(i3) =E= 130 ; (LHS = 0, INFES = 130 ****)
+     
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 11:55:13 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE oilconverter Using NLP From line 70
+
+
+---- x1  crude oil 1 to crude converter
+
+x1(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+     -100       objfun
+        1       capacityZ(i1)
+        0.5     yieldZA(i1)
+        0.3     yieldZB(i1)
+        0.2     yieldZC(i1)
+
+x1(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+     -100       objfun
+        1       capacityZ(i2)
+        0.5     yieldZA(i2)
+        0.3     yieldZB(i2)
+        0.2     yieldZC(i2)
+
+x1(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+     -100       objfun
+        1       capacityZ(i3)
+        0.5     yieldZA(i3)
+        0.3     yieldZB(i3)
+        0.2     yieldZC(i3)
+
+
+---- x2  crude oil 2 to crude converter
+
+x2(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+     -700       objfun
+        1       supply(i1)
+        1       capacityZ(i1)
+        0.7     yieldZA(i1)
+        0.2     yieldZB(i1)
+        0.1     yieldZC(i1)
+
+x2(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+     -700       objfun
+        1       supply(i2)
+        1       capacityZ(i2)
+        0.7     yieldZA(i2)
+        0.2     yieldZB(i2)
+        0.1     yieldZC(i2)
+
+x2(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+     -700       objfun
+        1       supply(i3)
+        1       capacityZ(i3)
+        0.7     yieldZA(i3)
+        0.2     yieldZB(i3)
+        0.1     yieldZC(i3)
+
+
+---- za  prod a from crude converter
+
+za(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldZA(i1)
+
+za(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldZA(i2)
+
+za(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldZA(i3)
+
+
+---- zb  prod b from crude converter
+
+zb(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldZB(i1)
+       -1       usplit(i1)
+
+zb(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldZB(i2)
+       -1       usplit(i2)
+
+zb(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldZB(i3)
+       -1       usplit(i3)
+
+
+---- zc  prod c from crude converter
+
+zc(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -80       objfun
+       -1       yieldZC(i1)
+        1       capacityV(i1)
+        0.4     yieldVA(i1)
+        0.6     yieldVB(i1)
+
+zc(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -80       objfun
+       -1       yieldZC(i2)
+        1       capacityV(i2)
+        0.4     yieldVA(i2)
+        0.6     yieldVB(i2)
+
+zc(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -80       objfun
+       -1       yieldZC(i3)
+        1       capacityV(i3)
+        0.4     yieldVA(i3)
+        0.6     yieldVB(i3)
+
+
+---- u1  split from prod b to final product
+
+u1(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       usplit(i1)
+        1       maxsaleB(i1)
+        1       excessB(i1)
+
+u1(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       usplit(i2)
+        1       maxsaleB(i2)
+        1       excessB(i2)
+
+u1(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       usplit(i3)
+        1       maxsaleB(i3)
+        1       excessB(i3)
+
+
+---- u2  split from prod b to reconverter
+
+u2(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -80       objfun
+        1       usplit(i1)
+        1       capacityV(i1)
+        0.9     yieldVA(i1)
+        0.1     yieldVB(i1)
+
+u2(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -80       objfun
+        1       usplit(i2)
+        1       capacityV(i2)
+        0.9     yieldVA(i2)
+        0.1     yieldVB(i2)
+
+u2(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -80       objfun
+        1       usplit(i3)
+        1       capacityV(i3)
+        0.9     yieldVA(i3)
+        0.1     yieldVB(i3)
+
+
+---- va  prod a from reconverter
+
+va(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldVA(i1)
+
+va(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldVA(i2)
+
+va(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldVA(i3)
+
+
+---- vb  prod b from reconverter
+
+vb(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldVB(i1)
+        1       maxsaleB(i1)
+        1       excessB(i1)
+
+vb(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldVB(i2)
+        1       maxsaleB(i2)
+        1       excessB(i2)
+
+vb(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       yieldVB(i3)
+        1       maxsaleB(i3)
+        1       excessB(i3)
+
+
+---- pa  final product a
+
+pa(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+     1000       objfun
+        1       demandPA(i1)
+
+pa(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+     1000       objfun
+        1       demandPA(i2)
+
+pa(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+     1000       objfun
+        1       demandPA(i3)
+
+
+---- pb  final product b
+
+pb(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      740       objfun
+        1       demandPB(i1)
+       -1       maxsaleB(i1)
+
+pb(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      740       objfun
+        1       demandPB(i2)
+       -1       maxsaleB(i2)
+
+pb(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      740       objfun
+        1       demandPB(i3)
+       -1       maxsaleB(i3)
+
+
+---- splus  excess over demand for prod b (to store)
+
+splus(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -20       objfun
+        1       yieldZB(i2)
+       -1       excessB(i1)
+
+splus(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -20       objfun
+        1       yieldZB(i3)
+       -1       excessB(i2)
+
+splus(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -20       objfun
+       -1       excessB(i3)
+
+
+---- sminus  shortage of prod b
+
+sminus(i1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       excessB(i1)
+
+sminus(i2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       excessB(i2)
+
+sminus(i3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       excessB(i3)
+
+
+---- z  total expected cost
+
+z
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       objfun
+
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 11:55:13 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE oilconverter Using NLP From line 70
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          14     SINGLE EQUATIONS           40
+BLOCKS OF VARIABLES          14     SINGLE VARIABLES           40
+NON ZERO ELEMENTS           120     NON LINEAR N-Z              0
+DERIVATIVE POOL              20     CONSTANT POOL              16
+CODE LENGTH                   0
+
+
+GENERATION TIME      =        0.109 SECONDS      4 MB  25.1.3 r4e34d435fbd WEX-WEI
+
+
+EXECUTION TIME       =        0.109 SECONDS      4 MB  25.1.3 r4e34d435fbd WEX-WEI
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 11:55:13 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE oilconverter Using NLP From line 70
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   oilconverter        OBJECTIVE  z
+     TYPE    NLP                 DIRECTION  MINIMIZE
+     SOLVER  LINDO               FROM LINE  70
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE          -951114.2857
+
+ RESOURCE USAGE, LIMIT          0.016      1000.000
+ ITERATION COUNT, LIMIT        15    2000000000
+ EVALUATION ERRORS             NA             0
+
+LINDO            25.1.3 r4e34d435fbd Released Oct 30, 2018 WEI x86 64bit/MS Wi
+
+   LINDO Driver
+   Lindo Systems Inc, www.lindo.com
+
+*** Running without Lindo license, model size exceeds global demo limit
+*** Switching off global optimizer
+Lindo API version 11.0.3802.338 built on Sep 27 2018 00:47:55
+
+Solution      = -951114.285714286
+Best possible = -951114.285714286
+Absolute gap  = 0  (OptCA = 0)
+Relative gap  = 0.00000  (OptCR = 0.1)
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU objfun              .              .              .             1.0000      
+
+  objfun  objective function
+
+---- EQU supply  supply of crude oil two
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1        -INF             .           300.0000          .          
+i2        -INF             .           300.0000          .          
+i3        -INF             .           300.0000          .          
+
+---- EQU capacityZ  capacity of crude converter
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1        -INF           71.4286       500.0000          .          
+i2        -INF             .           500.0000          .          
+i3        -INF             .           500.0000          .          
+
+---- EQU yieldZA  yield from crude converter to prod a
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .              .              .             EPS         
+i2          .              .              .             EPS         
+i3          .              .              .             EPS         
+
+---- EQU yieldZB  yield from crude converter to prod b
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .              .              .           276.1905      
+i2          .              .              .            20.0000      
+i3          .              .              .            20.0000      
+
+---- EQU yieldZC  yield from crude converter to prod c
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .              .              .            85.7143      
+i2          .              .              .              .          
+i3          .              .              .              .          
+
+---- EQU usplit  split of prod b to final product and reconverter
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .              .              .          -276.1905      
+i2          .              .              .           -20.0000      
+i3          .              .              .           -20.0000      
+
+---- EQU capacityV  capacity of reconverter
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1        -INF           14.2857       300.0000          .          
+i2        -INF             .           300.0000          .          
+i3        -INF             .           300.0000          .          
+
+---- EQU yieldVA  yield from reconverter to prod a
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .              .              .             EPS         
+i2          .              .              .             EPS         
+i3          .              .              .             EPS         
+
+---- EQU yieldVB  yield from reconverter to prod b
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .              .              .           276.1905      
+i2          .              .              .            20.0000      
+i3          .              .              .            20.0000      
+
+---- EQU demandPA  demand of product pa
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1        -INF          250.0000       250.0000     -1000.0000      
+i2        -INF          250.0000       250.0000     -1000.0000      
+i3        -INF          250.0000       250.0000     -1000.0000      
+
+---- EQU demandPB  demand of product pb
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1        -INF           30.0000        30.0000      -463.8095      
+i2        -INF          130.0000       130.0000      -720.0000      
+i3        -INF          130.0000       130.0000      -720.0000      
+
+---- EQU maxsaleB  we have to sell less then what we produce
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .              .            +INF          276.1905      
+i2          .              .            +INF           20.0000      
+i3          .              .            +INF           20.0000      
+
+---- EQU excessB  surplus of product b after sales
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1        30.0000        30.0000        30.0000         EPS         
+i2       130.0000       130.0000       130.0000         EPS         
+i3       130.0000       130.0000       130.0000          .          
+
+---- VAR x1  crude oil 1 to crude converter
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .            71.4286        +INF             .          
+i2          .              .            +INF           94.0000      
+i3          .              .            +INF           94.0000      
+
+---- VAR x2  crude oil 2 to crude converter
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .              .            +INF          636.1905      
+i2          .              .            +INF          696.0000      
+i3          .              .            +INF          696.0000      
+
+---- VAR za  prod a from crude converter
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .            35.7143        +INF             .          
+i2          .              .            +INF             .          
+i3          .              .            +INF             .          
+
+---- VAR zb  prod b from crude converter
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .            21.4286        +INF             .          
+i2          .           130.0000        +INF             .          
+i3          .           130.0000        +INF             .          
+
+---- VAR zc  prod c from crude converter
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .            14.2857        +INF             .          
+i2          .              .            +INF           68.0000      
+i3          .              .            +INF           68.0000      
+
+---- VAR u1  split from prod b to final product
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .            21.4286        +INF             .          
+i2          .           130.0000        +INF             .          
+i3          .           130.0000        +INF             .          
+
+---- VAR u2  split from prod b to reconverter
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .              .            +INF          328.5714      
+i2          .              .            +INF           98.0000      
+i3          .              .            +INF           98.0000      
+
+---- VAR va  prod a from reconverter
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .             5.7143        +INF             .          
+i2          .              .            +INF             .          
+i3          .              .            +INF             .          
+
+---- VAR vb  prod b from reconverter
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .             8.5714        +INF             .          
+i2          .              .            +INF             .          
+i3          .              .            +INF             .          
+
+---- VAR pa  final product a
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .           250.0000        +INF             .          
+i2          .           250.0000        +INF             .          
+i3          .           250.0000        +INF             .          
+
+---- VAR pb  final product b
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .            30.0000        +INF             .          
+i2          .           130.0000        +INF             .          
+i3          .           130.0000        +INF             .          
+
+---- VAR splus  excess over demand for prod b (to store)
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .           130.0000        +INF             .          
+i2          .           130.0000        +INF             .          
+i3          .              .            +INF           20.0000      
+
+---- VAR sminus  shortage of prod b
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+i1          .           130.0000        +INF             .          
+i2          .           130.0000        +INF             .          
+i3          .              .            +INF            EPS         
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR z                 -INF      -951114.2857        +INF             .          
+
+  z  total expected cost
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0     ERRORS
+
+
+EXECUTION TIME       =        0.000 SECONDS      2 MB  25.1.3 r4e34d435fbd WEX-WEI
+
+
+USER: GAMS Development Corporation, USA              G871201/0000CA-ANY
+      Free Demo, +1 202-342-0180, support@gams.com, www.gams.com DC0000
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\Oscar Bergqvist\Desktop\SF2822-project1\gams\project1-basic.gms
+Output     C:\Users\Oscar Bergqvist\Desktop\SF2822-project1\gams\project1-basic.lst
