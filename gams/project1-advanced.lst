@@ -1,4 +1,4 @@
-GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 15:54:39 Page 1
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/20/19 15:23:58 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -53,7 +53,7 @@ C o m p i l a t i o n
   48      supply(i)       ..  x2(i) =l= 300;
   49      capacityZ(i)    ..  x1(i) + x2(i) =l= 500;
   50      yieldZA(i)      ..  0.5*x1(i) + 0.7*x2(i) =e= za(i);
-  51      yieldZB(i)      ..  splus(i-1) + 0.3*x1(i) + 0.2*x2(i) =e= zb(i);
+  51      yieldZB(i)      ..  splus(i-1) - 0.01*sqr(splus(i-1)) + 0.3*x1(i) + 0.2*x2(i) =e= zb(i);
   52      yieldZC(i)      ..  0.2*x1(i) + 0.1*x2(i) =e= zc(i);
   53      usplit(i)       ..  u1(i) + u2(i) =e= zb(i);
   54      capacityV(i)    ..  zc(i) + u2(i) =l= 300;
@@ -70,7 +70,7 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  25.1.3 r4e34d435fbd WEX-WEI
-GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 15:54:39 Page 2
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/20/19 15:23:58 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE oilconverter Using NLP From line 64
 
@@ -113,9 +113,9 @@ yieldZA(i3)..  0.5*x1(i3) + 0.7*x2(i3) - za(i3) =E= 0 ; (LHS = 0)
 
 yieldZB(i1)..  0.3*x1(i1) + 0.2*x2(i1) - zb(i1) =E= 0 ; (LHS = 0)
      
-yieldZB(i2)..  0.3*x1(i2) + 0.2*x2(i2) - zb(i2) + splus(i1) =E= 0 ; (LHS = 0)
+yieldZB(i2)..  0.3*x1(i2) + 0.2*x2(i2) - zb(i2) + (1)*splus(i1) =E= 0 ; (LHS = 0)
      
-yieldZB(i3)..  0.3*x1(i3) + 0.2*x2(i3) - zb(i3) + splus(i2) =E= 0 ; (LHS = 0)
+yieldZB(i3)..  0.3*x1(i3) + 0.2*x2(i3) - zb(i3) + (1)*splus(i2) =E= 0 ; (LHS = 0)
      
 
 ---- yieldZC  =E=  yield from crude converter to prod c
@@ -198,7 +198,7 @@ excessB(i2)..  u1(i2) + vb(i2) - splus(i2) + sminus(i2) =E= 130 ; (LHS = 0, INFE
      
 excessB(i3)..  u1(i3) + vb(i3) - splus(i3) + sminus(i3) =E= 130 ; (LHS = 0, INFES = 130 ****)
      
-GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 15:54:39 Page 3
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/20/19 15:23:58 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE oilconverter Using NLP From line 64
 
@@ -448,13 +448,13 @@ pb(i3)
 splus(i1)
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
       -20       objfun
-        1       yieldZB(i2)
+       (1)      yieldZB(i2)
        -1       excessB(i1)
 
 splus(i2)
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
       -20       objfun
-        1       yieldZB(i3)
+       (1)      yieldZB(i3)
        -1       excessB(i2)
 
 splus(i3)
@@ -484,7 +484,7 @@ z
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       objfun
 
-GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 15:54:39 Page 4
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/20/19 15:23:58 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE oilconverter Using NLP From line 64
 
@@ -493,16 +493,16 @@ MODEL STATISTICS
 
 BLOCKS OF EQUATIONS          14     SINGLE EQUATIONS           40
 BLOCKS OF VARIABLES          14     SINGLE VARIABLES           40
-NON ZERO ELEMENTS           120     NON LINEAR N-Z              3
-DERIVATIVE POOL              20     CONSTANT POOL              25
-CODE LENGTH                  65
+NON ZERO ELEMENTS           120     NON LINEAR N-Z              5
+DERIVATIVE POOL              20     CONSTANT POOL              26
+CODE LENGTH                  79
 
 
 GENERATION TIME      =        0.031 SECONDS      4 MB  25.1.3 r4e34d435fbd WEX-WEI
 
 
 EXECUTION TIME       =        0.031 SECONDS      4 MB  25.1.3 r4e34d435fbd WEX-WEI
-GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/12/19 15:54:39 Page 5
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/20/19 15:23:58 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE oilconverter Using NLP From line 64
 
@@ -515,10 +515,10 @@ Solution Report     SOLVE oilconverter Using NLP From line 64
 
 **** SOLVER STATUS     1 Normal Completion         
 **** MODEL STATUS      2 Locally Optimal           
-**** OBJECTIVE VALUE          -937200.0000
+**** OBJECTIVE VALUE          -785027.0270
 
- RESOURCE USAGE, LIMIT          0.000      1000.000
- ITERATION COUNT, LIMIT        13    2000000000
+ RESOURCE USAGE, LIMIT          0.016      1000.000
+ ITERATION COUNT, LIMIT        30    2000000000
  EVALUATION ERRORS              0             0
 
 SNOPT            25.1.3 r4e34d435fbd Released Oct 30, 2018 WEI x86 64bit/MS
@@ -528,7 +528,7 @@ SNOPT            25.1.3 r4e34d435fbd Released Oct 30, 2018 WEI x86 64bit/MS
     P. E. Gill, UC San Diego
     W. Murray and M. A. Saunders, Stanford University
  Work space estimate computed by solver --     0.23 MB
- EXIT - Optimal Solution found, objective:       -937200.0
+ EXIT - Optimal Solution found, objective:       -785027.0
 
 
                            LOWER          LEVEL          UPPER         MARGINAL
@@ -543,7 +543,7 @@ SNOPT            25.1.3 r4e34d435fbd Released Oct 30, 2018 WEI x86 64bit/MS
 
 i1        -INF             .           300.0000          .          
 i2        -INF             .           300.0000          .          
-i3        -INF      6.091117E-14       300.0000          .          
+i3        -INF             .           300.0000          .          
 
 ---- EQU capacityZ  capacity of crude converter
 
@@ -551,7 +551,7 @@ i3        -INF      6.091117E-14       300.0000          .
 
 i1        -INF             .           500.0000          .          
 i2        -INF             .           500.0000          .          
-i3        -INF      6.091117E-14       500.0000          .          
+i3        -INF             .           500.0000          .          
 
 ---- EQU yieldZA  yield from crude converter to prod a
 
@@ -559,39 +559,39 @@ i3        -INF      6.091117E-14       500.0000          .
 
 i1          .              .              .             EPS         
 i2          .              .              .             EPS         
-i3          .              .              .          1004.0000      
+i3          .              .              .           610.4000      
 
 ---- EQU yieldZB  yield from crude converter to prod b
 
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .              .           740.0000      
-i2          .              .              .            20.0000      
-i3          .              .              .            20.0000      
+i2          .              .              .           740.0000      
+i3          .              .              .           740.0000      
 
 ---- EQU yieldZC  yield from crude converter to prod c
 
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .              .          1890.0000      
-i2          .              .              .          2970.0000      
-i3          .              .              .           -68.0000      
+i2          .              .              .           364.0000      
+i3          .              .              .           364.0000      
 
 ---- EQU usplit  split of prod b to final product and reconverter
 
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .              .          -740.0000      
-i2          .              .              .           -20.0000      
-i3          .              .              .           -20.0000      
+i2          .              .              .          -740.0000      
+i3          .              .              .          -740.0000      
 
 ---- EQU capacityV  capacity of reconverter
 
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1        -INF             .           300.0000          .          
-i2        -INF             .           300.0000          .          
-i3        -INF      2.179488E-14       300.0000          .          
+i2        -INF      2.764974E-15       300.0000          .          
+i3        -INF             .           300.0000          .          
 
 ---- EQU yieldVA  yield from reconverter to prod a
 
@@ -606,8 +606,8 @@ i3          .              .              .             EPS
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .              .           740.0000      
-i2          .              .              .            20.0000      
-i3          .              .              .            20.0000      
+i2          .              .              .           740.0000      
+i3          .              .              .           740.0000      
 
 ---- EQU demandPA  demand of product pa
 
@@ -622,16 +622,16 @@ i3        -INF          250.0000       250.0000     -1000.0000
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1        -INF             .            30.0000          .          
-i2        -INF          130.0000       130.0000      -720.0000      
-i3        -INF          130.0000       130.0000      -700.0000      
+i2        -INF           24.9817       130.0000          .          
+i3        -INF           24.9817       130.0000          .          
 
 ---- EQU maxsaleB  we have to sell less then what we produce
 
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .            +INF          740.0000      
-i2          .              .            +INF           20.0000      
-i3          .              .            +INF           40.0000      
+i2          .              .            +INF          740.0000      
+i3          .              .            +INF          740.0000      
 
 ---- EQU excessB  surplus of product b after sales
 
@@ -639,23 +639,23 @@ i3          .              .            +INF           40.0000
 
 i1        30.0000        30.0000        30.0000         EPS         
 i2       130.0000       130.0000       130.0000         EPS         
-i3       130.0000       130.0000       130.0000       -20.0000      
+i3       130.0000       130.0000       130.0000         EPS         
 
 ---- VAR x1  crude oil 1 to crude converter
 
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .            +INF             .          
-i2          .              .            +INF             .          
-i3          .              .            +INF          105.6000      
+i2          .              .            +INF          305.2000      
+i3          .              .            +INF             .          
 
 ---- VAR x2  crude oil 2 to crude converter
 
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .            +INF          363.0000      
-i2          .              .            +INF          399.0000      
-i3          .              .            +INF             .          
+i2          .              .            +INF          515.6000      
+i3          .              .            +INF           88.3200      
 
 ---- VAR za  prod a from crude converter
 
@@ -663,22 +663,22 @@ i3          .              .            +INF             .
 
 i1          .              .            +INF             .          
 i2          .              .            +INF             .          
-i3          .              .            +INF         1004.0000      
+i3          .              .            +INF          610.4000      
 
 ---- VAR zb  prod b from crude converter
 
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .            +INF             .          
-i2          .           130.0000        +INF             .          
-i3          .           130.0000        +INF             .          
+i2          .            24.9817        +INF             .          
+i3          .            24.9817        +INF             .          
 
 ---- VAR zc  prod c from crude converter
 
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .            +INF         1526.0000      
-i2          .              .            +INF         3038.0000      
+i2          .              .            +INF             .          
 i3          .              .            +INF             .          
 
 ---- VAR u1  split from prod b to final product
@@ -686,16 +686,16 @@ i3          .              .            +INF             .
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .            +INF             .          
-i2          .           130.0000        +INF             .          
-i3          .           130.0000        +INF             .          
+i2          .            24.9817        +INF             .          
+i3          .            24.9817        +INF             .          
 
 ---- VAR u2  split from prod b to reconverter
 
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .            +INF          746.0000      
-i2          .              .            +INF           98.0000      
-i3          .              .            +INF           98.0000      
+i2          .              .            +INF          746.0000      
+i3          .              .            +INF          746.0000      
 
 ---- VAR va  prod a from reconverter
 
@@ -726,28 +726,28 @@ i3          .           250.0000        +INF             .
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .              .            +INF             .          
-i2          .           130.0000        +INF             .          
-i3          .           130.0000        +INF             .          
+i2          .            24.9817        +INF             .          
+i3          .            24.9817        +INF             .          
 
 ---- VAR splus  excess over demand for prod b (to store)
 
           LOWER          LEVEL          UPPER         MARGINAL
 
-i1          .           130.0000        +INF             .          
-i2          .           130.0000        +INF             .          
-i3          .              .            +INF             .          
+i1          .            48.6486        +INF      -3.48521E-12      
+i2          .            48.6486        +INF      3.414158E-12      
+i3          .              .            +INF           20.0000      
 
 ---- VAR sminus  shortage of prod b
 
           LOWER          LEVEL          UPPER         MARGINAL
 
-i1          .           160.0000        +INF             .          
-i2          .           130.0000        +INF             .          
-i3          .              .            +INF           20.0000      
+i1          .            78.6486        +INF             .          
+i2          .           153.6669        +INF             .          
+i3          .           105.0183        +INF             .          
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR z                 -INF      -937200.0000        +INF             .          
+---- VAR z                 -INF      -785027.0270        +INF             .          
 
   z  total expected cost
 
@@ -768,5 +768,5 @@ USER: GAMS Development Corporation, USA              G871201/0000CA-ANY
 
 **** FILE SUMMARY
 
-Input      C:\Users\Oscar Bergqvist\Desktop\SF2822-project1\gams\project1-basic.gms
-Output     C:\Users\Oscar Bergqvist\Desktop\SF2822-project1\gams\project1-basic.lst
+Input      C:\Users\Oscar Bergqvist\Desktop\SF2822-project1\gams\project1-advanced.gms
+Output     C:\Users\Oscar Bergqvist\Desktop\SF2822-project1\gams\project1-advanced.lst

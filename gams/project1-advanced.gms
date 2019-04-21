@@ -48,7 +48,7 @@ EQUATIONS
     supply(i)       ..  x2(i) =l= 300;
     capacityZ(i)    ..  x1(i) + x2(i) =l= 500;
     yieldZA(i)      ..  0.5*x1(i) + 0.7*x2(i) =e= za(i);
-    yieldZB(i)      ..  splus(i-1) + 0.3*x1(i) + 0.2*x2(i) =e= zb(i);
+    yieldZB(i)      ..  splus(i-1) - 0.01*sqr(splus(i-1)) + 0.3*x1(i) + 0.2*x2(i) =e= zb(i);
     yieldZC(i)      ..  0.2*x1(i) + 0.1*x2(i) =e= zc(i);
     usplit(i)       ..  u1(i) + u2(i) =e= zb(i);
     capacityV(i)    ..  zc(i) + u2(i) =l= 300;
