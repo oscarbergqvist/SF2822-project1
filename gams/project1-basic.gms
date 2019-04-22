@@ -19,10 +19,11 @@ VARIABLES
     pa(i)       'final product a'
     pb(i)       'final product b'
     splus(i)    'excess over demand for prod b (to store)'
-    sminus(i)   'shortage of prod b'
     z           'total expected cost' ;
 
-POSITIVE VARIABLES x1, x2, za, zb, zc, u1, u2, va, vb, pa, pb, splus, sminus;
+
+
+POSITIVE VARIABLES x1, x2, za, zb, zc, u1, u2, va, vb, pa, pb, splus;
 
 EQUATIONS
     objfun          'objective function'
@@ -35,6 +36,7 @@ EQUATIONS
     capacityV(i)    'capacity of reconverter'
     yieldVA(i)      'yield from reconverter to prod a'
     yieldVB(i)      'yield from reconverter to prod b'
+    salesPA(i)      'units of product A sold'    
     demandPA(i)     'demand of product pa'
     demandPB(i)     'demand of product pb'
     maxsaleB(i)     'we have to sell less then what we produce'
@@ -54,11 +56,13 @@ EQUATIONS
     capacityV(i)    ..  zc(i) + u2(i) =l= 300;
     yieldVA(i)      ..  0.9*u2(i) + 0.4*zc(i) =e= va(i);
     yieldVB(i)      ..  0.1*u2(i) + 0.6*zc(i) =e= vb(i);
+    salesPA(i)      ..  za(i) + va(i) =g= pa(i);
     demandPA(i)     ..  pa(i) =l= 250;
     demandPB(i)     ..  pb(i) =l= d(i);
     maxsaleB(i)     ..  u1(i) + vb(i) =g= pb(i);
-    excessB(i)      ..  u1(i) + vb(i) - d(i) =e= splus(i) - sminus(i);
+    excessB(i)      ..  u1(i) + vb(i) - pb(i) =e= splus(i);
 
 MODEL   oilconverter /all/; 
 OPTION  nlp = snopt;
 SOLVE   oilconverter using nlp minimizing z;
+DISPLAY x1.l, x2.l, za.l, zb.l, zc.l, u1.l, u2.l, va.l, vb.l, pa.l, pb.l, splus.l
