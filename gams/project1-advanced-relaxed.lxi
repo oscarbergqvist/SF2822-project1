@@ -1,0 +1,74 @@
+B 2 C o m p i l a t i o n
+B 76 Equation Listing    SOLVE oilconverter Using NLP From line 65
+D 77 objfun
+D 85 supply
+D 94 capacityZ
+D 103 yieldZA
+D 112 yieldZB
+D 121 yieldZC
+D 130 usplit
+D 139 capacityV
+D 148 yieldVA
+D 157 yieldVB
+D 166 salesPA
+D 175 demandPA
+D 184 demandPB
+D 193 maxsaleB
+D 202 excessB
+B 213 Column Listing      SOLVE oilconverter Using NLP From line 65
+E 214 x1
+E 242 x2
+E 272 za
+E 290 zb
+E 308 zc
+E 335 u1
+E 356 u2
+E 383 va
+E 401 vb
+E 422 pa
+E 443 pb
+E 467 splus
+E 487 z
+B 496 Model Statistics    SOLVE oilconverter Using NLP From line 65
+B 514 Solution Report     SOLVE oilconverter Using NLP From line 65
+F 543 objfun
+F 551 supply
+F 559 capacityZ
+F 567 yieldZA
+F 575 yieldZB
+F 583 yieldZC
+F 591 usplit
+F 599 capacityV
+F 607 yieldVA
+F 615 yieldVB
+F 623 salesPA
+F 631 demandPA
+F 639 demandPB
+F 647 maxsaleB
+F 655 excessB
+G 658 x1
+G 666 x2
+G 674 za
+G 682 zb
+G 690 zc
+G 698 u1
+G 706 u2
+G 714 va
+G 722 vb
+G 730 pa
+G 738 pb
+G 746 splus
+G 754 z
+B 769 E x e c u t i o n
+I 770 x1
+I 776 x2
+I 781 za
+I 786 zb
+I 791 zc
+I 796 u1
+I 801 u2
+I 806 va
+I 811 vb
+I 816 pa
+I 821 pb
+I 826 splus

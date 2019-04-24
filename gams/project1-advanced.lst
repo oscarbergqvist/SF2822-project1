@@ -1,4 +1,4 @@
-GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/22/19 18:35:18 Page 1
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/24/19 14:04:02 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -53,7 +53,7 @@ C o m p i l a t i o n
   48      supply(i)       ..  x2(i) =l= 300;
   49      capacityZ(i)    ..  x1(i) + x2(i) =l= 500;
   50      yieldZA(i)      ..  0.5*x1(i) + 0.7*x2(i) =e= za(i);
-  51      yieldZB(i)      ..  splus(i-1) - 0.01*sqr(splus(i-1)) + 0.3*x1(i) + 0.2*x2(i) =e= zb(i);
+  51      yieldZB(i)      ..  splus(i-1) - 0.01*sqr(splus(i-1)) + 0.3*x1(i) + 0.2*x2(i) =g= zb(i);
   52      yieldZC(i)      ..  0.2*x1(i) + 0.1*x2(i) =e= zc(i);
   53      usplit(i)       ..  u1(i) + u2(i) =e= zb(i);
   54      capacityV(i)    ..  zc(i) + u2(i) =l= 300;
@@ -69,10 +69,11 @@ C o m p i l a t i o n
   64  OPTION  nlp = snopt;
   65  SOLVE   oilconverter using nlp minimizing z;
   66  DISPLAY x1.l, x2.l, za.l, zb.l, zc.l, u1.l, u2.l, va.l, vb.l, pa.l, pb.l, splus.l
+  67  DISPLAY yieldZB.m
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  25.1.3 r4e34d435fbd WEX-WEI
-GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/22/19 18:35:18 Page 2
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/24/19 14:04:02 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE oilconverter Using NLP From line 65
 
@@ -111,13 +112,13 @@ yieldZA(i2)..  0.5*x1(i2) + 0.7*x2(i2) - za(i2) =E= 0 ; (LHS = 0)
 yieldZA(i3)..  0.5*x1(i3) + 0.7*x2(i3) - za(i3) =E= 0 ; (LHS = 0)
      
 
----- yieldZB  =E=  yield from crude converter to prod b
+---- yieldZB  =G=  yield from crude converter to prod b
 
-yieldZB(i1)..  0.3*x1(i1) + 0.2*x2(i1) - zb(i1) =E= 0 ; (LHS = 0)
+yieldZB(i1)..  0.3*x1(i1) + 0.2*x2(i1) - zb(i1) =G= 0 ; (LHS = 0)
      
-yieldZB(i2)..  0.3*x1(i2) + 0.2*x2(i2) - zb(i2) + (1)*splus(i1) =E= 0 ; (LHS = 0)
+yieldZB(i2)..  0.3*x1(i2) + 0.2*x2(i2) - zb(i2) + (1)*splus(i1) =G= 0 ; (LHS = 0)
      
-yieldZB(i3)..  0.3*x1(i3) + 0.2*x2(i3) - zb(i3) + (1)*splus(i2) =E= 0 ; (LHS = 0)
+yieldZB(i3)..  0.3*x1(i3) + 0.2*x2(i3) - zb(i3) + (1)*splus(i2) =G= 0 ; (LHS = 0)
      
 
 ---- yieldZC  =E=  yield from crude converter to prod c
@@ -209,7 +210,7 @@ excessB(i2)..  u1(i2) + vb(i2) - pb(i2) - splus(i2) =E= 0 ; (LHS = 0)
      
 excessB(i3)..  u1(i3) + vb(i3) - pb(i3) - splus(i3) =E= 0 ; (LHS = 0)
      
-GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/22/19 18:35:18 Page 3
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/24/19 14:04:02 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE oilconverter Using NLP From line 65
 
@@ -492,7 +493,7 @@ z
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       objfun
 
-GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/22/19 18:35:18 Page 4
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/24/19 14:04:02 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE oilconverter Using NLP From line 65
 
@@ -506,11 +507,11 @@ DERIVATIVE POOL              20     CONSTANT POOL              26
 CODE LENGTH                  79
 
 
-GENERATION TIME      =        0.032 SECONDS      4 MB  25.1.3 r4e34d435fbd WEX-WEI
+GENERATION TIME      =        0.015 SECONDS      4 MB  25.1.3 r4e34d435fbd WEX-WEI
 
 
-EXECUTION TIME       =        0.032 SECONDS      4 MB  25.1.3 r4e34d435fbd WEX-WEI
-GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/22/19 18:35:18 Page 5
+EXECUTION TIME       =        0.015 SECONDS      4 MB  25.1.3 r4e34d435fbd WEX-WEI
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/24/19 14:04:02 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE oilconverter Using NLP From line 65
 
@@ -525,7 +526,7 @@ Solution Report     SOLVE oilconverter Using NLP From line 65
 **** MODEL STATUS      2 Locally Optimal           
 **** OBJECTIVE VALUE          -293886.5686
 
- RESOURCE USAGE, LIMIT          0.015      1000.000
+ RESOURCE USAGE, LIMIT          0.016      1000.000
  ITERATION COUNT, LIMIT        61    2000000000
  EVALUATION ERRORS              0             0
 
@@ -573,9 +574,9 @@ i3          .              .              .           731.1111
 
           LOWER          LEVEL          UPPER         MARGINAL
 
-i1          .              .              .           637.9267      
-i2          .              .              .           642.2222      
-i3          .              .              .           642.2222      
+i1          .              .            +INF          637.9267      
+i2          .              .            +INF          642.2222      
+i3          .              .            +INF          642.2222      
 
 ---- EQU yieldZC  yield from crude converter to prod c
 
@@ -670,7 +671,7 @@ i3          .           294.3557        +INF             .
           LOWER          LEVEL          UPPER         MARGINAL
 
 i1          .             3.5335        +INF      -1.06095E-13      
-i2          .            73.7294        +INF      8.784279E-14      
+i2          .            73.7294        +INF      -1.75686E-13      
 i3          .            85.6443        +INF      -1.75686E-13      
 
 ---- VAR za  prod a from crude converter
@@ -764,8 +765,8 @@ i3          .              .            +INF          662.2222
                              0 INFEASIBLE
                              0  UNBOUNDED
                              0     ERRORS
-                             2  PROJECTED
-GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/22/19 18:35:18 Page 6
+                             1  PROJECTED
+GAMS 25.1.3  r4e34d435fbd Released Oct 30, 2018 WEX-WEI x86 64bit/MS Windows - 04/24/19 14:04:02 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -830,8 +831,13 @@ i1  30.000,    i2 130.000,    i3 130.000
 i1 13.827
 
 
+----     67 EQUATION yieldZB.M  yield from crude converter to prod b
 
-EXECUTION TIME       =        0.016 SECONDS      3 MB  25.1.3 r4e34d435fbd WEX-WEI
+i1 637.927,    i2 642.222,    i3 642.222
+
+
+
+EXECUTION TIME       =        0.000 SECONDS      3 MB  25.1.3 r4e34d435fbd WEX-WEI
 
 
 USER: GAMS Development Corporation, USA              G871201/0000CA-ANY
